@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title>Simple Calculator JS</title>
+
+            <style >
+                      
+                /*here CSS */
+                fieldset { margin: 10px auto 10px auto;
+                                width: 40%;
+                                border:  solid rgb(7, 7, 7) 8px;
+                                padding: 3%;
+                            }
+                                
+                legend {   padding: 6px;
+                                margin: 10px;
+                                border: solid rgb(172, 164, 164) 10px;
+                                font-size: 90%;
+                                font-weight: bold;
+                                background-color: #e8e8e8;
+                            }
+                    
+                label { display: block;
+                             font-size: 11px; 
+                            }
+ 
+                input { width: 100%;
+                             border: solid #ccc 1px;
+                             font-size: 11px;
+                             margin-bottom: 10px;
+                            }
+         
+                input.button { display: block;
+                                   width: auto;
+                                   float: right;
+                                }
+               
+            </style>
+            <script type= "text/javascript">
+                
+                    /*here JavaScript*/
+
+                    function calculate(oper){
+
+                             var value1 = parseInt(document.calcform.value1.value);
+                             var value2 = parseInt(document.calcform.value2.value);
+                             var res = 0;
+
+
+                             if (oper == "addition"){ 
+                                 res = (value1) + (value2);
+                            } else if (oper == "subtraction") {
+                                 res = value1 - value2;
+                            } else if (oper == "multiplication"){
+                                res = value1*value2;
+                            }   else if(oper == "division"){
+                                 res = value1 / value2;
+                            }
+                            document.calcform.res.value = res;
+                 }          
+          
+            </script>
+        </head>
+        <body>
+             <form name="calcform" method="post" actions="">
+                 <fieldset>
+                     <legend>Simple Calculator JS</legend>
+
+                        <label for="value1">Enter value<strong>1</strong>:</label>
+                        <input type="text" name="value1" id="value1" />
+
+                        <label for="value2">Enter Value<stromg>2</stromg>:</label>
+                        <input type="text" name="value2" id="value2" />
+
+                        <label for="oper">Selected Operation : </label>
+                            <select name="oper" id="oper">
+                                <option value="addition">Addition</option>
+                                <option value="subtraction">Subtraction</option>
+                                <option value="multiplication">Multiplication</option>
+                                <option value="division">Division</option>
+                            </select>
+                        
+                        <label for="res">Result : </label>
+                            <input type="text" name="res" id="res" />
+                            <input type="button" value="Calculate" class="button" onClick="calculate(document.calcform.oper.value)"/>    
+
+                 </fieldset>
+
+             </form>
+     
+                
+        </body>
+</html>
